@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  :root {
+    --bg: #0a0b0d;
+    --surface: #111214;
+    --surface-hover: #1a1b1e;
+    --border: #1f2937;
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+    --cyan: #06b6d4;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #eab308;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-(--surface) border border-(--border) rounded-sm overflow-hidden;
+  }
+
+  .panel-header {
+    @apply bg-(--surface-hover) px-3 py-2 border-b border-(--border) flex justify-between items-center;
+  }
+
+  .text-xs-caps {
+    @apply text-[10px] uppercase tracking-widest font-bold;
+  }
+
+  .mono-data {
+    @apply font-mono text-[11px];
+  }
+
+  .table-header {
+    @apply sticky top-0 bg-(--surface) border-b border-(--border) text-gray-500 uppercase text-[9px] font-bold tracking-wider;
+  }
+
+  .table-row {
+    @apply hover:bg-white/5 transition-colors border-b border-(--border)/50;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #374151;
+  }
+}
+
